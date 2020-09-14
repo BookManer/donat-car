@@ -1,0 +1,158 @@
+body {
+    font-family: sans-serif;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+
+    padding: 20px 120px;
+
+    background-image: url('bg.png'), linear-gradient(rgba(250, 250, 250, 1), rgba(250, 250, 250, 1));
+    background-size: 100% auto;
+    background-blend-mode: color;
+
+    overflow-x: hidden;
+}
+
+.title-page {
+    font-size: 54px;
+}
+.title-page span {
+    display: inline-block;
+    transform: rotate(180deg) translateY(-20%);
+}
+car {
+    position: relative;
+    display: inline-block;
+    transition: all .2s ease;
+    transform-origin: center center;
+}
+
+.description-goal {
+    font-size: 18px;
+    max-width: 720px;
+    line-height: 1.5;
+    color: gray;
+}
+
+.items-rating {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    width: 100%;
+    height: 560px;
+
+    overflow-y: scroll;
+}
+
+.item-rating {
+    display: flex;
+    align-items: center;
+    justify-content: stretch;
+    margin-bottom: 2rem;
+}
+.avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 64px;
+    height: 64px;
+
+    background-color: gold;
+    color: black;
+}
+
+.persona-review {
+    margin-left: 2rem;
+}
+.persona-review__name {
+    font-size: 16px;
+    line-height: 1;
+}
+.persona-review__review {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1;
+    color: rgba(0,0,0,.3);
+}
+.persona-review__price {
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 2rem;
+    padding: .1rem 1.2rem;
+    background-image: linear-gradient(to bottom, transparent 50%, lightgreen 0);
+    color: black;
+}
+
+.donaters-headline {
+    align-self: flex-start;
+    margin-bottom: 2rem;
+    margin-left: 1.5rem;
+}
+
+.pay-form {
+    width: 100%;
+    min-width: 280px;
+    max-width: 320px;
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 50px 0;
+}
+.pay-form__label {
+    display: flex;
+    flex-flow: column nowrap;
+}
+.pay-form__label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+.pay-form__input {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 0 45px -5px rgba(20, 20, 20, .2);
+    margin-top: 0.5rem;
+}
+
+.pay-form__btn {
+    font-weight: bold;
+    font-size: 16px;
+    padding: .8rem;
+    color: green;
+    background-color: lightgreen;
+    border: none;
+    cursor: pointer;
+}
+
+@media all and (max-width: 768px) {
+    body {
+        padding: 20px;
+    }
+    .title-page {
+        font-size: 48px;
+    }
+    .description-goal {
+        font-size: 14px;
+    }
+
+    .items-rating {
+        padding: 0;
+        margin: 0;
+    }
+    .item-rating {
+        flex-flow: row wrap;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+    .avatar {
+        width: 50px;
+        height: 50px;
+        font-size: 14px;
+    }
+}

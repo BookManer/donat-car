@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Ух, прокачу!</title>
+</head>
+<body>
+    <h1 class="title-page">Прокачу первых 10-х!!!	
+        <car><span>&#128168;</span>&#127950;</car></h1>
+    <p class="description-goal">
+        По факту это задумывалось ради эксперимента, но я подумал, а почему бы и да!
+        Суть такова, что Вы приобретаете место в рейтинге за деньги. Казалось бы, каков профит
+        Вам? Ответ: никакой. Это просто инвестиция в меня.
+    </p>
+
+    <form class="pay-form">
+        <label for="name" class="pay-form__label">Фамилия Имя
+            <input id="name" type="text" name="name" class="pay-form__input" placeholder="Фамилия Имя">
+        </label>
+
+        <label for="mail" class="pay-form__label">
+            Почта
+           <input type="email" name="email" id="mail" class="pay-form__input">
+        </label>
+
+        <!-- <label for="phone" class="pay-form__label">
+            Телефон
+           <input type="tel" name="phone" id="phone" class="pay-form__input">
+        </label> -->
+
+        <label for="price" class="pay-form__label">
+            Сумма доната
+            <input type="number" id="price" name="price" placeholder="Максимум 50.000 руб" class="pay-form__input">
+        </label>
+
+        <label for="review" class="pay-form__label">
+            Сумма доната
+            <textarea id="review" name="review" placeholder="Сообщение для доната" class="pay-form__input"></textarea>
+
+        </label>
+
+        <input class="pay-form__btn" type="submit" value="Задонатить">
+    </form>
+
+    <h2 class="donaters-headline">Здесь можешь быть ты 😇</h2>
+    <ul class="items-rating">
+        <!-- <li class="item-rating">
+            <div class="avatar">СА</div>
+            <div class="persona-review">
+                <h3 class="persona-review__name">Суслов Алексей</h3>
+                <p class="persona-review__review">Лови сотку, чел!</p>
+            </div>
+            <span class="persona-review__price">2 руб</span>
+        </li> -->
+    </ul>
+
+    <script src="index.js"></script>
+    <script>
+        document.write(
+          '<script src="http://' +
+            (location.host || '${1:localhost}').split(':')[0] +
+            ':${2:3250}/livereload.js?snipver=1"></' +
+            'script>'
+        );
+      </script>
+      <script src='https://oplata.qiwi.com/popup/v1.js'></script>
+</body>
+</html>
