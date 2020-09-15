@@ -37,20 +37,24 @@ async function onSubmitPay(e) {
     await setupDonaters();
 }
 
-const host = 'http://localhost:3001';
+const host = 'http://localhost:8080';
 
 async function setupDonaters() {
-    const endpoint = '/api/qiwi/getAllDonaters';
-    const el_itemsRating = document.querySelector('.items-rating');
-    const json = await fetch(`${host}${endpoint}`);
-    let donaters = await json.json();
-    donaters.sort(({price:priceA}, {price:priceB}) => {
-        return priceB - priceA;
-    })
-    
-    donaters.forEach((donater) => {
-        el_itemsRating.appendChild(renderDonater(donater));
-    });
+    try {
+        const endpoint = '/api/qiwi/getAllDonaters';
+        const el_itemsRating = document.querySelector('.items-rating');
+        const json = await fetch(`${host}${endpoint}`);
+        let donaters = await json.json();
+        donaters.sort(({price:priceA}, {price:priceB}) => {
+            return priceB - priceA;
+        })
+        
+        donaters.forEach((donater) => {
+            el_itemsRating.appendChild(renderDonater(donater));
+        });
+    } catch (e) {
+        console.error(e);
+    }
 
     function renderDonater({name, price, review}) {
         const first_name = name.split(' ')[1].substring(0, 1).toUpperCase();
@@ -80,17 +84,16 @@ async function payPlaceRating(e) {
 
     const params = `v=2&name=${name}&email=${email}&price=${price}&review=${review}`;
 
-    try {
+    return new Promise(async (rej, res) => {
         const json = await fetch(`${host}${endpointAPI}?${params}`);
         const payUrl = await json.json();
-        
+        console.log('opened');
         QiwiCheckout.openInvoice({payUrl}).then((data) => {
             console.log(data);
+            res(data);
         }).catch((error) => {
-            console.error(error);
+            rej(error);
         })
-        
-    } catch(e) {
-        console.error(e);
-    }
+        console.log('closed');
+    })
 }
